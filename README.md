@@ -1,0 +1,1 @@
+There are some number of interesting actions that the provided bash and haskell codes perform. Each task has its own README which explains what is the task to be performed and how it should be executed. 
