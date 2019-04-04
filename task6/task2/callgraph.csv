@@ -1,0 +1,6 @@
+TestFunc,3.00,StaticFunc,22.55
+main,1.00,TestFunc,3.00
+StaticFunc,22.55,newfunc,2.05
+TestFunc,3.00,newfunc,2.05
+newfunc,2.05,botfun,1.93
+newfunc,2.03,dusra,2.67

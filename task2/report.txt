@@ -1,0 +1,36 @@
+Task 1:
+
+1) ./runme1 2 > output1.txt
+You will get 'four sigusr1' as output on terminal. So file descriptor for runme2 is 4 and the signal required is SIGUSR1
+2) ./runme2 4>&1
+3) Open new terminal
+4) pidof runme2
+Ignore the auto-color one
+Get pid of the process from this command and feed it in step 5
+5) kill -SIGUSR1 <pid>
+6) Final output will appear on the original terminal
+
+
+
+Task 2:
+
+Explaination of each command in the script:
+#!/bin/bash  						 	//absolute path to the bash interpretor
+cp /dev/null link.txt    					//clears any previous data in link.txt and makes it empty
+ps -ef >usrbinout.txt	 					//prints out all the processes in file usrbinout.txt
+awk '{print $2, $8 }' usrbinout.txt > final1.txt		//prints only pid and process name column in final1.txt
+grep -e " /bin" -e " /usr/bin" final1.txt > final2.txt    	//searches the string /bin and /usr/bin in the file final1.txt and prints all those lines in final2.txt
+filename='final2.txt'      				 	//filename variable
+n=1								//loop initialisation
+while read line; do						//read one line at a time
+s=($line)							//storing that line in s
+ls -l ${s[1]} >>link.txt					//prints the permisions, links and process name and other columns of a process  in link.txt
+n=$((n+1))							//loop iteration
+done < $filename                 				//loop end condition
+awk '{print $1,$2,$9 }' link.txt > col1.txt			//printing only permissions, links, and process name in file col1.txt
+sort -k 2 final2.txt > a1.txt					//sort by process name and store it in a1.txt
+sort -k 3 col1.txt > a2.txt					//sort by process name and store it in a2.txt
+join -1 2 -2 3 a1.txt a2.txt > finalanswer.txt			//joins a1.txt and a2.txt by process name and stores it in finalanswer.txt
+sort -u finalanswer.txt > f.txt					//prints unique lines in f.txt for the lines which may have been duplicated during join process
+cut -d " " -f 1,2,3,4 f.txt --output-delimiter=',' >finalanswer2.txt  					  //join all the four columns by using comma seperator
+rm usrbinout.txt final1.txt final2.txt link.txt col1.txt finalanswer.txt f.txt a1.txt a2.txt  		  //delete all the temporary files 

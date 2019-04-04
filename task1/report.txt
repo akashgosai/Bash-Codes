@@ -1,0 +1,10 @@
+Problems faced:
+1)Permission denied to open and view asgn directory. Used chmod 777 to gain access.
+2)Permission denied to open the link run_me. Used chmod 777 to gain access.
+3)No 'output' directory exists in asgn. Created one so that the link can execute the executable run_me hidden inside bin folder.
+
+Commands used:
+> To gain access to asgn directory: chmod 777 asgn
+>To gain access to run_me link: chmod 777 run_me
+>To make output directory: mkdir output
+

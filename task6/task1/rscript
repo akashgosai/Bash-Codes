@@ -1,0 +1,5 @@
+a <- read.csv("final.csv",header=FALSE)
+library("ggplot2")
+
+ggplot(a ,aes(x=V1,y=V2))+geom_bar(stat="identity",aes(fill=a$V1))+facet_wrap(~V3)
+ggplot(a ,aes(x=V1,y=V2))+geom_line(stat="identity")+facet_wrap(~V3)
