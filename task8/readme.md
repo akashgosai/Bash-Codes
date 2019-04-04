@@ -2,7 +2,6 @@
 
 2. incrrange cuts the list till the range's ending number and then cuts the list till the range's starting number and increase the answer by 1.
 
-3. 
-  a) combination prints all the non reapeting combinations by using recursion.
-  b) unique takes a list and gives uniques elements.
-  c) combinations uses both the functions combination and unique to give the desired output.
+3.a) combination prints all the non repeating combinations by using recursion.
+  b) unique takes a list and gives unique elements.
+  c) combinations uses both the functions' combination and unique to give the desired output.
